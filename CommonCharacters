@@ -1,0 +1,47 @@
+import java.util.*;
+
+// this program takes two arrays and return true if there are common element exists.
+class Main {
+    
+   boolean  commonCharacters(char[] arr1, char[] arr2){
+       
+       HashSet<Character> complementSet = new HashSet<Character>();
+       for(int i = 0; i< arr1.length; i++ )
+        {
+           if(!complementSet.contains(arr1[i]))
+               
+           complementSet.add(arr1[i]);
+       }
+       
+       System.out.println("complementSet -" + complementSet);
+       
+       for(int i = 0; i< arr2.length; i++ )
+        {
+           if(complementSet.contains(arr2[i]))
+       
+       
+       return true;
+              
+       
+   }
+   
+   return false;
+   
+   }
+    
+    
+
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+         Main test = new Main();
+        
+        char[] inputArray1 = {'a', 'b', 'c'};
+         char[] inputArray2 = {'d', 'e', 'f', 'g','a'};
+
+        
+        System.out.println(test.commonCharacters(inputArray1, inputArray2));
+        
+        
+        
+    }
+}

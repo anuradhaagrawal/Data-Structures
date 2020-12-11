@@ -1,0 +1,32 @@
+class Solution {
+    public int[] rotate(int[] nums, int k) {
+        
+        if  (  k < 1 || nums.length < 2)
+            return nums;
+        
+       if ( k > nums.length)
+       {
+        k =    k % nums.length;
+       }
+        
+        int moveIndexOfArray = nums.length - k;
+        int[] tempArray = new int[k];
+        
+        for (int i = 0; i < k ; i++){
+            tempArray[i] = nums[moveIndexOfArray+i];
+        }
+        
+        for (int j = moveIndexOfArray -1 ; j  >= 0 ; j--){
+            nums[j+k] = nums[j];
+        }
+        
+        for (int i = 0; i < k ; i++){
+            nums[i] = tempArray[i];
+        }
+        
+        return nums;
+        
+    }
+    
+    
+}

@@ -1,0 +1,105 @@
+import java.util.*;
+class Node {
+    Node next;
+     int value;
+
+    public Node(int value, Node node) {
+        this.value = value;
+        this.next = node;
+    }
+
+
+
+   
+}
+
+class Main {
+
+  Node head;
+  Node tail;
+  int length;
+
+  Main(int value){
+    this.head = new Node(value,null);
+    this.tail = this.head;
+    this.length = 1;
+  }
+
+void append(int value){
+    Node temp = new Node(value, null);
+    this.tail.next = temp;
+    this.tail = temp;
+    this.length++;
+
+  }
+
+  void prepend(int value){
+
+    Node temp = new Node(value, null);
+    temp.next = this.head;
+    this.head = temp;
+    this.length++;
+
+  }
+
+   public int[] printList() {
+        int[] myList = new int[length];
+        Node current = this.head;
+        int i = 0;
+
+        while (current != null) {
+            myList[i] = current.value;
+            current = current.next;
+            i++;
+        }
+        return myList;
+    }
+
+    boolean insert(int value, int index){
+      Node temp = new Node(value, null);
+      int i = 1;
+      Node current = this.head;
+
+      if (index > length){
+        append(value);
+        return true;
+      }
+      if (index ==1){
+        prepend(value);
+        return true;
+      }
+
+      while ((i< (index-1) ) && (current != null)){
+        current = current.next;
+        i++;
+
+      }
+
+      temp.next = current.next;
+      current.next = temp;
+      length++;
+
+      return true;
+
+
+    }
+
+
+
+
+
+
+    public static void main(String[] args){
+
+      Main list = new Main(1);
+      list.append(2);
+       list.prepend(3);
+       list.insert(4,2);
+       list.insert(4,5);
+       list.insert(4,1);
+       System.out.println("Here is the list" + Arrays.toString(list.printList()));
+     
+   
+    }
+}
+

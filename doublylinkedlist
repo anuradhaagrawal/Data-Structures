@@ -45,6 +45,19 @@ void append(int value){
     this.length++;
 
   }
+  
+   public int[] reversePrintList() {
+        int[] myList = new int[length];
+        Node current = this.tail;
+        int i = 0;
+
+        while (current != null) {
+            myList[i] = current.value;
+            current = current.prev;
+            i++;
+        }
+        return myList;
+    }
 
    public int[] printList() {
         int[] myList = new int[length];

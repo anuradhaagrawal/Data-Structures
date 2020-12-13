@@ -1,0 +1,39 @@
+import java.util.*;
+
+
+class Main {
+
+
+   
+
+
+
+
+
+    public static void main(String[] args){
+
+     LinkedList<Integer> test = new LinkedList<Integer>(Arrays.asList(1,2,3,4,5,6,7));
+
+     test.addAll(new ArrayList<Integer>(Arrays.asList(1,2,3,4,5,6,7)));
+     System.out.println(test.toString());
+     
+     
+     System.out.println(test.getFirst() + test.getLast() + " " + test.size() + " " + test.listIterator(test.size() -1).previous());
+     for (int i = test.size()-1; i > 0; i-- ){
+       System.out.println(test.get(i));
+
+     }
+String str = "ABCDEFGHIJKLMNOPQRST";
+char[] ch = new char[str.length()]; 
+int j=0;
+for (int i = str.length()-1; i >=0; i--) { 
+            ch[j] = str.charAt(i); 
+            j++;
+        } 
+     System.out.println(String.valueOf(ch));
+     
+      
+   
+    }
+}
+

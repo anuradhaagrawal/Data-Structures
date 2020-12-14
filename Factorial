@@ -1,0 +1,32 @@
+import java.util.*;
+
+
+class Main {
+
+  int factorial(int n){
+    if (n==1) return 1;
+    else
+    return n*factorial(n-1);
+
+  }
+
+  int factorialLoop(int n){
+    int value = n;
+    for (int i=1; i<n; i++){
+      value = value *i;
+    }
+    return value;
+
+  }
+
+ 
+ 
+
+    public static void main(String[] args){
+
+      Main test = new Main();
+      System.out.println(test.factorial(5));
+    System.out.println(test.factorialLoop(5));
+    }    
+}
+

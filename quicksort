@@ -1,0 +1,59 @@
+import java.util.*;
+
+
+class Main {
+
+ 
+
+
+ArrayList<Integer> array = new ArrayList<Integer>(Arrays.asList(99, 44, 6,-7, 2, 1, 5, 63, 87, 283, 4, 0));
+ 
+ void quickSort(int left, int right){
+  int pivot = 0;
+  int partitionIndex = 0;
+
+  if(left < right) {
+    pivot = right;
+    partitionIndex = partition( pivot, left, right);
+    
+    //sort left and right
+    quickSort(left, partitionIndex - 1);
+    quickSort(partitionIndex + 1, right);
+  }
+ 
+}
+   
+int partition(int pivot, int left, int right){
+  int pivotValue = array.get(pivot);
+  int partitionIndex = left;
+
+  for(int i = left; i < right; i++) {
+    if(array.get(i) < pivotValue){
+      swap(i, partitionIndex);
+      partitionIndex++;
+    }
+  }
+  swap(right, partitionIndex);
+  return partitionIndex;
+}
+
+void  swap(int firstIndex, int secondIndex){
+    int temp = array.get(firstIndex);
+    array.set(firstIndex,array.get(secondIndex));
+    array.set(secondIndex, temp);
+   
+}
+ 
+
+    public static void main(String[] args){
+
+      Main test = new Main();
+      
+      
+       test.quickSort(0,(test.array.size() -1));
+       System.out.println(test.array);
+
+       
+    }    
+}
+

@@ -1,0 +1,37 @@
+import java.util.*;
+
+
+class Main {
+
+ 
+
+ int[] insertionSort(int[] a){
+
+   for (int i= 1; i< a.length; i++){
+
+     int current = a[i]; int j = i-1;
+     while (j >= 0 && current< a[j] ){
+       a[j+1] = a[j];
+       j--;
+     }
+     a[j+1] = current;
+
+   }
+   return a;
+
+
+ }
+ 
+ 
+
+    public static void main(String[] args){
+
+      Main test = new Main();
+      int[] numbers = {99, 44, 6,-7, 2, 1, 5, 63, 87, 283, 4, 0};
+      
+      // System.out.println(Arrays.toString(test.bubbleSort(numbers)));
+
+       System.out.println(Arrays.toString(test.insertionSort(numbers)));
+    }    
+}
+

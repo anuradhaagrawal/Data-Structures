@@ -1,0 +1,58 @@
+import java.util.*;
+
+
+class Main {
+
+ 
+
+ List<Integer> mergeSort(List<Integer> a){
+    int n = a.size();
+   if (n== 1) return a;
+   else
+   {
+     int middle = n/2;
+   
+
+   return merge(mergeSort(a.subList(0, middle)),mergeSort(a.subList(middle, n)));
+   }
+
+
+ }
+
+ List<Integer> merge(List<Integer> left, List<Integer> right){
+   int leftIndex = 0;
+   int rightIndex = 0;
+   List<Integer> temp = new ArrayList<>();
+   while((leftIndex < left.size()) && rightIndex < right.size()) {
+     if (left.get(leftIndex) > right.get(rightIndex) ){
+       temp.add(right.get(rightIndex));
+       rightIndex++;
+     } else {
+       temp.add(left.get(leftIndex));
+       leftIndex++;
+
+     }
+   }
+
+   if(leftIndex == left.size())
+   temp.addAll(right.subList(rightIndex,right.size()));
+   else
+   temp.addAll(left.subList(leftIndex,left.size()));
+
+   return temp;
+
+ }
+ 
+ 
+
+    public static void main(String[] args){
+
+      Main test = new Main();
+      ArrayList<Integer> numbers = new ArrayList<Integer>(Arrays.asList(99, 44, 6,-7, 2, 1, 5, 63, 87, 283, 4, 0));
+      
+       System.out.println(test.mergeSort(numbers));
+
+       
+    }    
+}
+

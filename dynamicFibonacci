@@ -1,0 +1,50 @@
+import java.util.HashMap;
+
+public class Main {
+    static HashMap<Integer, Integer> cache = new HashMap<>();
+    static int operationsCount = 0;
+      static int operationsCountR = 0;
+
+    public int fibonacciMaster(int n) {
+        if (cache.containsKey(n)) {
+            return cache.get(n);
+        } else {
+            if (n < 2) {
+                return n;
+            } else {
+                operationsCount++;
+                cache.put(n, fibonacciMaster(n - 1) + fibonacciMaster(n - 2));
+                return cache.get(n);
+            }
+        }
+    }
+
+     public int fibonacciMasterR(int n) {
+        
+            if (n < 2) {
+                return n;
+            } else {
+                operationsCountR++;
+                return fibonacciMasterR(n - 1) + fibonacciMasterR(n - 2);
+                
+            }
+        
+    }
+
+    public static void main(String[] args) {
+        Main fib = new Main();
+        System.out.println(fib.fibonacciMaster(30));
+        System.out.println(fib.operationsCount);
+        System.out.println(fib.fibonacciMasterR(30));
+        System.out.println(fib.operationsCountR);
+        System.out.println(fib.cache);
+
+        Main fib2 = new Main();
+        System.out.println(fib2.fibonacciMaster(5));
+        System.out.println(fib2.operationsCount);
+        System.out.println(fib2.fibonacciMasterR(5));
+        System.out.println(fib2.operationsCountR);
+        System.out.println(fib2.cache);
+    }
+
+}
